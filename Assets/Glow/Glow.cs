@@ -11,7 +11,17 @@ public class Glow : MonoBehaviour
     public Camera cam;
     void Awake()
     {
-       
+        
+        renderTexture = new RenderTexture(Screen.width / 4, Screen.height / 4, 24, RenderTextureFormat.ARGB32);
+        RenderTexture tempRenderTexture = new RenderTexture(Screen.width / 4, Screen.height / 4, 24, RenderTextureFormat.ARGB32);
+        renderTexture.filterMode = FilterMode.Trilinear;
+        tempRenderTexture.filterMode = FilterMode.Trilinear;
+
+        GlowMapGenerator glowMapGenerator = cam.GetComponent<GlowMapGenerator>();
+        glowMapGenerator.tempRenderTexture = tempRenderTexture;
+        glowMapGenerator.renderTexture = renderTexture;
+
+        cam.GetComponent<Camera>().targetTexture = renderTexture;
     }
 
 
