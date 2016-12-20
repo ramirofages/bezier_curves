@@ -51,8 +51,10 @@ public class Linear : MonoBehaviour
 			Vector3 Apos = Vector3.Lerp(p0.position,p1.position,length);
 			Vector3 Bpos = Vector3.Lerp(p1.position,p2.position,length);
 			Vector3 tempPos = Vector3.Lerp(Apos,Bpos,length);
+			Vector3[] controles = new Vector3[]{ p0.position, p1.position, p2.position};
+			Vector3 final_pos = getBezierPos(controles,length);
 
-			GLDebug.DrawLine(lastPos,tempPos,Color.red,0,true);
+			GLDebug.DrawLine(lastPos,final_pos,Color.red,0,true);
 
 			if(showNormals)
 				DrawNormal(Apos,Bpos,tempPos);
@@ -62,6 +64,22 @@ public class Linear : MonoBehaviour
 			length+= precision;
 		}
 		GLDebug.DrawLine(lastPos,p2.position,Color.red,0,true);
+	}
+
+	Vector3 getBezierPos(Vector3[] puntos, float t)
+	{
+		if(puntos.Length == 1)
+			return puntos[0];
+		else
+		{
+			Vector3[] new_points = new Vector3[puntos.Length-1];
+			for(int i=0; i< new_points.Length; i++)
+			{
+				new_points[i] = Vector3.Lerp(puntos[i], puntos[i+1], t);
+			}
+
+			return getBezierPos(puntos, t);
+		}
 	}
 
 	void DrawNormal(Vector3 a, Vector3 b, Vector3 origin)

@@ -1,8 +1,9 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Lightning.cs">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Linear.cs">
     <Files>
-      <File FileName="Assets\Lightning.cs" Line="69" Column="5" />
+      <File FileName="C:\Users\Skeith\Documents\pixel-project\Assets\Code\Game\AI\AIActivationTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets\Linear.cs" Line="64" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
